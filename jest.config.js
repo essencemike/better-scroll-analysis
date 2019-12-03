@@ -20,8 +20,8 @@ module.exports = {
     "js"
   ],
   "moduleNameMapper": {
-    '^@better-scroll/(.*)/(.*)$': '<rootDir>/packages/$1/$2',
-    '^@better-scroll/(.*)$': '<rootDir>/packages/$1/src/index',
+    '^@bsas/(.*)/(.*)$': '<rootDir>/packages/$1/$2',
+    '^@bsas/(.*)$': '<rootDir>/packages/$1/src/index',
     '^@/(.*)$': '<rootDir>/$1'
   },
   "coverageDirectory": "<rootDir>/tests/coverage",

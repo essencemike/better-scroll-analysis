@@ -1,12 +1,13 @@
 {
-  "name": "better-scroll-analysis",
+  "name": "bsas",
   "private": true,
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "packages:build": "node scripts/build.js",
+    "packages:clean": "rimraf packages/**/types",
+    "packages:build": "npm run packages:clean && node scripts/build.js",
     "packages:release": "node scripts/release.js",
     "lint": "tslint --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "test": "jest --coverage",
@@ -70,6 +71,7 @@
     "rollup-plugin-typescript2": "^0.25.2",
     "rollup-plugin-uglify": "^6.0.3",
     "semver": "^6.3.0",
+    "shelljs": "^0.8.3",
     "ts-jest": "^24.2.0",
     "ts-loader": "^6.2.1",
     "ts-node": "^8.5.4",

@@ -1,11 +1,11 @@
 # `@better-scroll-analysis/core`
 
-> TODO: description
+> 核心滚动, 实现基础的列表滚动效果。
 
 ## Usage
 
-```
-const core = require('@better-scroll-analysis/core');
+```js
+import BScroll form '@better-scroll-analysis/core';
 
-// TODO: DEMONSTRATE API
+const bs = new BScroll('.wrapper', {/* ... */});
 ```

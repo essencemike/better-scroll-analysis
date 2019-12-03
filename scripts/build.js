@@ -6,8 +6,8 @@ const chalk = require('chalk');
 const zlib = require('zlib');
 const rimraf = require('rimraf');
 const typescript = require('rollup-plugin-typescript2');
-const uglify = require('rollup-plugin-uglify');
-const execa = require('execa');
+const uglify = require('rollup-plugin-uglify').uglify;
+const shelljs = require('shelljs');
 const ora = require('ora');
 const spinner = ora({
   prefixText: `${chalk.green('\n[building tasks]')}`
@@ -35,7 +35,7 @@ function getPackagesName() {
 function cleanPackagesOldDist(packagesName) {
   packagesName.forEach(name => {
     const distPath = resolve(`packages/${name}/dist`);
-    const typePath = resolve(`packages/${name}/types`);
+    const typePath = resolve(`packages/${name}/dist/types`);
 
     if (fs.existsSync(distPath)) {
       rimraf.sync(distPath);
@@ -122,7 +122,7 @@ function generateBuildConfigs(packagesName = []) {
 
       // rollup 会验证我们自己配置的 config 的属性并输出警告
       // 将 packageName 放到 prototype 中以忽略警告
-      Object.defineProperty(config, {
+      Object.defineProperties(config, {
         'packageName': {
           value: name
         },
@@ -142,7 +142,10 @@ function copyDTSFiles(packageName) {
   console.log(chalk.cyan('> start copying .d.ts file to dist dir of packages own.'));
   const sourceDir = resolve(`packages/${packageName}/dist/packages/${packageName}/src/*`);
   const targetDir = resolve(`packages/${packageName}/dist/types/`);
-  execa.shellSync(`mv ${sourceDir} ${targetDir}`);
+
+  const files = shelljs.ls(sourceDir);
+  shelljs.mv(files, targetDir);
+
   console.log(chalk.cyan('> copy job is done.'));
 
   rimraf.sync(resolve(`packages/${packageName}/dist/packages`));
