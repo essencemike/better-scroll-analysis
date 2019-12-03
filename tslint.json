@@ -18,7 +18,9 @@
     "no-arg": true,
     "no-bitwise": true,
     "no-conditional-assignment": true,
+    "no-increment-decrement": false,
     "no-consecutive-blank-lines": false,
+    "no-parameter-reassignment": false,
     "no-console": false,
     "await-promise": false
   }

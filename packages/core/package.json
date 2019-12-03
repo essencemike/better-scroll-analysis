@@ -1,5 +1,5 @@
 {
-  "name": "@better-scroll-analysis/core",
+  "name": "@bsas/core",
   "version": "0.0.0",
   "description": "Minimalistic core scrolling for BetterScroll, it is pure and tiny",
   "keywords": [
@@ -32,5 +32,8 @@
   },
   "bugs": {
     "url": "https://github.com/essencemike/better-scroll-analysis/issues"
+  },
+  "dependencies": {
+    "@bsas/shared-utils": "^0.0.0"
   }
 }
