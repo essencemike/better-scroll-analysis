@@ -73,9 +73,9 @@ const release = async () => {
   const releaseArguments = [
     'publish',
     version,
-    '--force-publish',
     '--npm-tag',
     npmTag,
+    '--force-publish',
     '*'
   ];
 
