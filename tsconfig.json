@@ -4,7 +4,7 @@
     "composite": true,
     "moduleResolution": "node",
     "paths": {
-      "@better-scroll/*": ["./*/src"]
+      "@bsas/*": ["./*/src"]
     },
     "target": "es5",
     "module":"es2015",
