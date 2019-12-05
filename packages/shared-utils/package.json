@@ -21,7 +21,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/essencemike/better-scroll-analysis.git"
+    "url": "git+https://github.com/essencemike/better-scroll-analysis.git",
+    "directory": "packages/shared-utils"
   },
   "bugs": {
     "url": "https://github.com/essencemike/better-scroll-analysis/issues"

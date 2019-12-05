@@ -100,7 +100,7 @@ function generateBuildConfigs(packagesName = []) {
   const result = [];
   packagesName.forEach(name => {
     buildType.forEach(type => {
-      const config = {
+      let config = {
         input: resolve(`packages/${name}/src/index.ts`),
         output: {
           file: resolve(`packages/${name}/dist/${name}${type.ext}`),
@@ -143,8 +143,7 @@ function copyDTSFiles(packageName) {
   const sourceDir = resolve(`packages/${packageName}/dist/packages/${packageName}/src/*`);
   const targetDir = resolve(`packages/${packageName}/dist/types/`);
 
-  const files = shelljs.ls(sourceDir);
-  shelljs.mv(files, targetDir);
+  shelljs.cp('-R', sourceDir, targetDir);
 
   console.log(chalk.cyan('> copy job is done.'));
 
@@ -220,7 +219,7 @@ const getAnswersFromInquirer = async (packagesName) => {
     }))
   };
 
-  const { packages } = await inquirer.prompt(questions);
+  let { packages } = await inquirer.prompt(questions);
 
   // 如果没有选择任何包
   if (!packages.length) {
