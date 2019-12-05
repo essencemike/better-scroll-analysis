@@ -1,16 +1,16 @@
 {
   "name": "@bsas/shared-utils",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "shared-utils for BetterScroll",
   "man": "dist/shared-utils.min.js",
   "module": "dist/shared-utils.esm.js",
   "typings": "dist/types/index.d.ts",
   "keywords": [
     "scroll",
-		"iscroll",
-		"javascript",
-		"typescript",
-		"ios"
+    "iscroll",
+    "javascript",
+    "typescript",
+    "ios"
   ],
   "author": "IMike <gzxessence@163.com>",
   "homepage": "https://github.com/essencemike/better-scroll-analysis/tree/master/packages/shared-utils#readme",
