@@ -5,7 +5,7 @@
 ## Usage
 
 ```js
-import BScroll form '@better-scroll-analysis/core';
+import BScroll form '@bsas/core';
 
 const bs = new BScroll('.wrapper', {/* ... */});
 ```
