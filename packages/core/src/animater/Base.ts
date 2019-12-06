@@ -20,7 +20,7 @@ export default abstract class Base {
       probeType: number;
     }
   ) {
-    this.hooks = new EventEmitter(['move', 'end', 'beforeForceStop', 'forceStop', 'time', 'tiemFunction']);
+    this.hooks = new EventEmitter(['move', 'end', 'beforeForceStop', 'forceStop', 'time', 'timeFunction']);
     this.style = content.style as safeCSSStyleDeclaration;
   }
 

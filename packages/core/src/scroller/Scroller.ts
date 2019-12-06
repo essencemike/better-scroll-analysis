@@ -138,7 +138,7 @@ export default class Scroller {
 
     // 滚动时禁用指针事件
     hooks.on(hooks.eventTypes.translate, (pos: TranslaterPoint) => {
-      this.updatePosition(pos);
+      this.updatePositions(pos);
       this.togglePointerEvents(false);
     });
   }
@@ -216,7 +216,7 @@ export default class Scroller {
 
     actions.hooks.on(actions.hooks.eventTypes.scrollEnd, (pos: TranslaterPoint, duration: number) => {
       const deltaX = Math.abs(pos.x - this.scrollBehaviorX.startPos);
-      const deltaY = Math.abs((pos.y = this.scrollBehaviorY.startPos));
+      const deltaY = Math.abs(pos.y - this.scrollBehaviorY.startPos);
 
       if (this.checkFlick(duration, deltaX, deltaY)) {
         this.hooks.trigger(this.hooks.eventTypes.flick);
@@ -240,8 +240,6 @@ export default class Scroller {
     ) {
       return true;
     }
-
-    return false;
   }
 
   private momentum(pos: TranslaterPoint, duration: number) {
@@ -274,8 +272,6 @@ export default class Scroller {
       this.scrollTo(meta.newX, meta.newY, meta.time, meta.easing);
       return true;
     }
-
-    return false;
   }
 
   private checkClick(e: TouchEvent) {
@@ -446,7 +442,7 @@ export default class Scroller {
     return true;
   }
 
-  updatePosition(pos: TranslaterPoint) {
+  updatePositions(pos: TranslaterPoint) {
     this.scrollBehaviorX.updatePosition(pos.x);
     this.scrollBehaviorY.updatePosition(pos.y);
   }

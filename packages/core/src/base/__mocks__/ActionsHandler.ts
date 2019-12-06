@@ -1,7 +1,7 @@
 import EventEmitter from '@bsas/core/src/base/EventEmitter';
 import EventRegister from '@bsas/core/src/base/EventRegister';
 
-const actionsHandler = jest.fn().mockImplementation((wrapper, bscrollOptions) => {
+const ActionsHandler = jest.fn().mockImplementation((wrapper, bscrollOptions) => {
   return {
     wrapper,
     options: bscrollOptions,
@@ -15,4 +15,4 @@ const actionsHandler = jest.fn().mockImplementation((wrapper, bscrollOptions) =>
   };
 });
 
-export default actionsHandler;
+export default ActionsHandler;
