@@ -1,3 +1,12 @@
+# [1.1.0](https://github.com/essencemike/better-scroll-analysis/compare/v1.0.0...v1.1.0) (2019-12-26)
+
+
+### Features
+
+* **scrollbar:** add scrollbar module ([29b4de2](https://github.com/essencemike/better-scroll-analysis/commit/29b4de2e1b92d67e12da2181996ea59afbea3064))
+
+
+
 # [1.0.0](https://github.com/essencemike/better-scroll-analysis/compare/d6e0d6c8c47285cbdd4be2785c7988aaf757ba33...v1.0.0) (2019-12-05)
 
 
