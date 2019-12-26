@@ -1,17 +1,16 @@
-import createAnimater from '@bsas/core/src/animater';
-import Translater from '@bsas/core/src/translater';
-import Behavior from '@bsas/core/src/scroller/Behavior';
-import ActionsHandler from '@bsas/core/src/base/ActionsHandler';
-import Actions from '@bsas/core/src/scroller/Actions';
+import createAnimater from '../../animater';
+import Translater from '../../translater';
+import Behavior from '../Behavior';
+import ActionsHandler from '../../base/ActionsHandler';
+import Actions from '../Actions';
 
-jest.mock('@bsas/core/src/animater');
-jest.mock('@bsas/core/src/translater');
-jest.mock('@bsas/core/src/scroller/Behavior');
-jest.mock('@bsas/core/src/base/ActionsHandler');
-jest.mock('@bsas/core/src/scroller/Actions');
+jest.mock('../../animater');
+jest.mock('../../translater');
+jest.mock('../Behavior');
+jest.mock('../../base/ActionsHandler');
+jest.mock('../Actions');
 
-import EventEmitter from '@bsas/core/src/base/EventEmitter';
-import EventRegister from '@bsas/core/src/base/EventRegister';
+import { EventEmitter, EventRegister } from '@bsas/shared-utils';
 
 const Scroller = jest.fn().mockImplementation((wrapper, bscrollOptions) => {
   const content = wrapper.children[0];

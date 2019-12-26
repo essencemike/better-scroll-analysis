@@ -1,6 +1,4 @@
-import { hasTransition, hasPerspective, hasTouch } from '@bsas/shared-utils';
-
-import { Probe, EventPassthrough } from './enums';
+import { hasTransition, hasPerspective, hasTouch, Probe, EventPassthrough } from '@bsas/shared-utils';
 
 export type tap = 'tap' | '';
 export type bounceOptions = Partial<BounceConfig> | boolean;

@@ -1,0 +1,32 @@
+{
+  "name": "@bsas/scroll-bar",
+  "version": "1.0.0",
+  "description": "scrollbar is used to BetterScroll, which behaves like browser scrollbar",
+  "keywords": [
+    "scroll",
+    "iscroll",
+    "javascript",
+    "typescript",
+    "ios",
+    "scrollbar"
+  ],
+  "author": "IMike <gzxessence@163.com>",
+  "homepage": "https://github.com/essencemike/better-scroll-analysis/tree/master/packages/scroll-bar#readme",
+  "license": "MIT",
+  "main": "dist/scroll-bar.min.js",
+  "module": "dist/scroll-bar.esm.js",
+  "typings": "dist/types/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/essencemike/better-scroll-analysis.git"
+  },
+  "bugs": {
+    "url": "https://github.com/essencemike/better-scroll-analysis/issues"
+  },
+  "dependencies": {
+    "@bsas/core": "^1.0.0"
+  }
+}

@@ -1,5 +1,5 @@
-import { bubbling } from '@bsas/core/src/utils/bubbling';
-import EventEmitter from '@bsas/core/src/base/EventEmitter';
+import { bubbling } from '../bubbling';
+import { EventEmitter } from '@bsas/shared-utils';
 
 describe('bubbling', () => {
   it('bubbling', () => {

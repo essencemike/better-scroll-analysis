@@ -1,6 +1,5 @@
-import { EaseFn, safeCSSStyleDeclaration, cancelAnimationFrame } from '@bsas/shared-utils';
+import { EaseFn, safeCSSStyleDeclaration, cancelAnimationFrame, EventEmitter } from '@bsas/shared-utils';
 
-import EventEmitter from '../base/EventEmitter';
 import Translater, { TranslaterPoint } from '../translater';
 
 export type Displacement = [number, number];

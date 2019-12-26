@@ -1,6 +1,4 @@
-import { TouchEvent } from '@bsas/shared-utils';
-
-import { DirectionLock, EventPassthrough } from '../enums';
+import { TouchEvent, DirectionLock, EventPassthrough } from '@bsas/shared-utils';
 
 enum Passthrough {
   Yes = 'yes',

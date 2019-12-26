@@ -1,8 +1,7 @@
-import { style, requestAnimationFrame, cancelAnimationFrame, EaseFn } from '@bsas/shared-utils';
+import { style, requestAnimationFrame, cancelAnimationFrame, EaseFn, Probe } from '@bsas/shared-utils';
 
 import Base from './Base';
 import { TranslaterPoint } from '../translater';
-import { Probe } from '../enums/probe';
 
 export default class Transition extends Base {
   startProbe() {

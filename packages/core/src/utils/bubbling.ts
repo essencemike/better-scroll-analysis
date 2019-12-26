@@ -1,4 +1,4 @@
-import EventEmitter from '../base/EventEmitter';
+import { EventEmitter } from '@bsas/shared-utils';
 
 interface BubblingEventMap {
   source: string;

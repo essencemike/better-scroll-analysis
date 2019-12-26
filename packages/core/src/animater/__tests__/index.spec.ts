@@ -1,12 +1,12 @@
-import Translater from '@bsas/core/src/translater';
-import Transition from '@bsas/core/src/animater/Transition';
-import Animation from '@bsas/core/src/animater/Animation';
-import { Options } from '@bsas/core/src/Options';
-jest.mock('@bsas/core/src/animater/Animation');
-jest.mock('@bsas/core/src/animater/Transition');
-jest.mock('@bsas/core/src/animater/Base');
-jest.mock('@bsas/core/src/translater');
-jest.mock('@bsas/core/src/Options');
+import Translater from '../../translater';
+import Transition from '../Transition';
+import Animation from '../Animation';
+import { Options } from '../../Options';
+jest.mock('../Animation');
+jest.mock('../Transition');
+jest.mock('../Base');
+jest.mock('../../translater/index');
+jest.mock('../../Options');
 
 import createAnimater from '../index';
 

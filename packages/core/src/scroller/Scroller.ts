@@ -12,20 +12,24 @@ import {
   isUndef,
   getNow,
   cancelAnimationFrame,
-  EaseItem
+  EaseItem,
+  EventEmitter,
+  EventRegister,
+  Probe
 } from '@bsas/shared-utils';
 
 import ActionsHandler from '../base/ActionsHandler';
-import EventEmitter from '../base/EventEmitter';
-import EventRegister from '../base/EventRegister';
 import Translater, { TranslaterPoint } from '../translater';
 import createAnimater, { Animater, Transition } from '../animater';
 import { Options as BScrollOptions, BounceConfig } from '../Options';
 import Behavior from './Behavior';
 import ScrollerActions from './Actions';
 import { createActionsHandlerOptions, createBehaviorOptions } from './createOptions';
-import { Probe } from '../enums';
 import { bubbling } from '../utils/bubbling';
+
+export interface MountedBScrollHTMLElement extends HTMLElement {
+  isBScrollContainer?: boolean;
+}
 
 export default class Scroller {
   wrapper: HTMLElement;
@@ -337,9 +341,9 @@ export default class Scroller {
     const el = this.content.children.length ? this.content.children : [this.content];
     const pointerEvents = enabled ? 'auto' : 'none';
     for (let i = 0; i < el.length; i++) {
-      const node = el[i] as HTMLElement;
+      const node = el[i] as MountedBScrollHTMLElement;
       // 忽略 BetterScroll 包裹的实例
-      if ((node as any).isBScroll) {
+      if (node.isBScrollContainer) {
         continue;
       }
       node.style.pointerEvents = pointerEvents;

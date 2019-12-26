@@ -1,5 +1,5 @@
-import Behavior from '@bsas/core/src/scroller/Behavior';
-import { createDiv } from '@bsas/core/src/__tests__/__utils__/layout';
+import Behavior from '../Behavior';
+import { createDiv } from '../../__tests__/__utils__/layout';
 
 describe('Behavior', () => {
   let behavior: Behavior;

@@ -1,16 +1,16 @@
-import Behavior from '@bsas/core/src/scroller/Behavior';
-import createAnimater from '@bsas/core/src/animater';
-import Translater from '@bsas/core/src/translater';
-import { Options } from '@bsas/core/src/Options';
-import ActionsHandler from '@bsas/core/src/base/ActionsHandler';
+import Behavior from '../Behavior';
+import createAnimater from '../../animater';
+import Translater from '../../translater';
+import { Options } from '../../Options';
+import ActionsHandler from '../../base/ActionsHandler';
 
-jest.mock('@bsas/core/src/scroller/Behavior');
-jest.mock('@bsas/core/src/animater');
-jest.mock('@bsas/core/src/translater');
-jest.mock('@bsas/core/src/Options');
-jest.mock('@bsas/core/src/base/ActionsHandler');
+jest.mock('../Behavior');
+jest.mock('../../animater');
+jest.mock('../../translater');
+jest.mock('../../Options');
+jest.mock('../../base/ActionsHandler');
 
-import Actions from '@bsas/core/src/scroller/Actions';
+import Actions from '../Actions';
 
 describe('Actions Class tests', () => {
   let actions: Actions;

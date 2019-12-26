@@ -1,19 +1,20 @@
-import { warn } from '@bsas/shared-utils';
+import { warn } from './debug';
+import { addEvent, removeEvent } from './dom';
 
-interface EventsMap {
+interface Events {
   [name: string]: [Function, Object][];
 }
 
-interface TypesMap {
+interface EventTypes {
   [type: string]: string;
 }
 
 /**
  * 一个简单的事件发布订阅
  */
-export default class EventEmitter {
-  events: EventsMap;
-  eventTypes: TypesMap;
+export class EventEmitter {
+  events: Events;
+  eventTypes: EventTypes;
   constructor(names: string[]) {
     this.events = {};
     this.eventTypes = {};
@@ -21,7 +22,7 @@ export default class EventEmitter {
   }
 
   on(type: string, fn: Function, context: any = this) {
-    this.checkInTypes(type);
+    this.hasType(type);
     if (!this.events[type]) {
       this.events[type] = [];
     }
@@ -31,7 +32,7 @@ export default class EventEmitter {
   }
 
   once(type: string, fn: Function, context: any = this) {
-    this.checkInTypes(type);
+    this.hasType(type);
     const magic = (...args: any[]) => {
       this.off(type, magic);
 
@@ -51,7 +52,7 @@ export default class EventEmitter {
     }
 
     if (type) {
-      this.checkInTypes(type);
+      this.hasType(type);
       if (!fn) {
         this.events[type] = [];
         return this;
@@ -75,7 +76,7 @@ export default class EventEmitter {
   }
 
   trigger(type: string, ...args: any[]) {
-    this.checkInTypes(type);
+    this.hasType(type);
     const events = this.events[type];
     if (!events) {
       return;
@@ -107,12 +108,56 @@ export default class EventEmitter {
     this.eventTypes = {};
   }
 
-  private checkInTypes(type: string) {
+  private hasType(type: string) {
     const types = this.eventTypes;
     const inTypes = types[type] === type;
 
     if (!inTypes) {
-      warn(`EventEmitter has used unknown event type: "${type}", should be oneof [${Object.keys(types)}]`);
+      warn(`EventEmitter has used unknown event type: "${type}", should be oneof [${Object.keys(types).map(_ => JSON.stringify(_))}]`);
     }
+  }
+}
+
+interface EventData {
+  name: string;
+  handler(e: UIEvent): void;
+  capture?: boolean;
+}
+
+export class EventRegister {
+  constructor(public wrapper: HTMLElement | Window, public events: EventData[]) {
+    this.addDOMEvents();
+  }
+
+  destroy() {
+    this.removeDOMEvents();
+    this.events = [];
+  }
+
+  private addDOMEvents() {
+    this.handleDOMEvents(addEvent);
+  }
+
+  private removeDOMEvents() {
+    this.handleDOMEvents(removeEvent);
+  }
+
+  private handleDOMEvents(eventOperation: Function) {
+    const wrapper = this.wrapper;
+
+    this.events.forEach((event: EventData) => {
+      eventOperation(wrapper, event.name, this, !!event.capture);
+    });
+  }
+
+  private handleEvent(e: UIEvent) {
+    const eventType = e.type;
+    this.events.some((event: EventData) => {
+      if (event.name === eventType) {
+        event.handler(e);
+        return true;
+      }
+      return false;
+    });
   }
 }

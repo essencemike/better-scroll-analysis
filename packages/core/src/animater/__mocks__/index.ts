@@ -1,8 +1,8 @@
-import Transition from '@bsas/core/src/animater/Transition';
-import Animation from '@bsas/core/src/animater/Animation';
+import Transition from '../Transition';
+import Animation from '../Animation';
 
-jest.mock('@bsas/core/src/animater/Transition');
-jest.mock('@bsas/core/src/animater/Animation');
+jest.mock('../Transition');
+jest.mock('../Animation');
 
 const createAnimater = jest.fn().mockImplementation((element, translater, bscrollOptions) => {
   if (bscrollOptions.useTransition) {

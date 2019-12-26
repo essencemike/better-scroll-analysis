@@ -1,7 +1,7 @@
-import { createActionsHandlerOptions, createBehaviorOptions } from '@bsas/core/src/scroller/createOptions';
-import { Options } from '@bsas/core/src/Options';
+import { createActionsHandlerOptions, createBehaviorOptions } from '../createOptions';
+import { Options } from '../../Options';
 
-jest.mock('@bsas/core/src/Options');
+jest.mock('../../Options');
 
 describe('createOptions helper function tests', () => {
   let bsOptions: any;

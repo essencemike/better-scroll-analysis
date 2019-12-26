@@ -1,5 +1,5 @@
-import Translater from '@bsas/core/src/translater';
-jest.mock('@bsas/core/src/translater');
+import Translater from '../../translater/index';
+jest.mock('../../translater/index');
 
 const mockRequestAnimationFrame = jest.fn();
 const mockCancelAnimationFrame = jest.fn();

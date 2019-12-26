@@ -1,16 +1,15 @@
-import EventEmitter from './EventEmitter';
-import EventRegister from './EventRegister';
-
 import {
   TouchEvent,
   // dom 相关
   preventDefaultExceptionFn,
   tagExceptionFn,
   eventTypeMap,
-  hasTouch
+  hasTouch,
+  EventRegister,
+  EventEmitter,
+  EventType,
+  MouseButton
 } from '@bsas/shared-utils';
-
-import { EventType, MouseButton } from '../enums';
 
 type Exception = {
   tagName?: RegExp;

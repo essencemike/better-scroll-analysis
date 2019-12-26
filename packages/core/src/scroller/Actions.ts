@@ -1,13 +1,11 @@
-import { preventDefaultExceptionFn, TouchEvent, getNow } from '@bsas/shared-utils';
+import { preventDefaultExceptionFn, TouchEvent, getNow, EventEmitter, Probe } from '@bsas/shared-utils';
 
 import ActionsHandler from '../base/ActionsHandler';
 import Behavior from './Behavior';
 import DirectionLockAction from './DirectionLock';
 import { Animater } from '../animater';
-import EventEmitter from '../base/EventEmitter';
 import { Options as BScrollOptions } from '../Options';
 import { TranslaterPoint } from '../translater';
-import { Probe } from '../enums';
 
 export default class ScrollerActions {
   hooks: EventEmitter;

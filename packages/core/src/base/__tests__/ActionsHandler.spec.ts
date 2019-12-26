@@ -1,5 +1,5 @@
-import ActionsHandler, { Options } from '@bsas/core/src/base/ActionsHandler';
-import { dispatchTouch, dispatchMouse } from '@bsas/core/src/__tests__/__utils__/event';
+import ActionsHandler, { Options } from '../ActionsHandler';
+import { dispatchTouch, dispatchMouse } from '../../__tests__/__utils__/event';
 
 describe('ActionsHandler', () => {
   let actionsHandler: ActionsHandler;

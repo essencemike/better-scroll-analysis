@@ -1,5 +1,4 @@
-import { style, safeCSSStyleDeclaration } from '@bsas/shared-utils';
-import EventEmitter from '../base/EventEmitter';
+import { style, safeCSSStyleDeclaration, EventEmitter } from '@bsas/shared-utils';
 
 export interface TranslaterPoint {
   x: number;

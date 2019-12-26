@@ -1,20 +1,18 @@
-import EventEmitter from './base/EventEmitter';
 import { Options } from './Options';
-import Scroller from './scroller/Scroller';
-import { getElement, warn, isUndef, propertiesProxy } from '@bsas/shared-utils';
+import Scroller, { MountedBScrollHTMLElement } from './scroller/Scroller';
+import { getElement, warn, isUndef, propertiesProxy, EventEmitter, ApplyOrder } from '@bsas/shared-utils';
 import { bubbling } from './utils/bubbling';
 import { propertiesConfig } from './propertiesConfig';
-import { EnforceOrder } from './enums/enforce-order';
 
 interface PluginCtor {
   pluginName: string;
-  enforce?: EnforceOrder;
+  applyOrder?: ApplyOrder;
   new (scroll: BScroll): any;
 }
 
 interface PluginItem {
   name: string;
-  enforce?: EnforceOrder.Pre | EnforceOrder.Post;
+  applyOrder?: ApplyOrder.Pre | ApplyOrder.Post;
   ctor: PluginCtor;
 }
 
@@ -52,7 +50,7 @@ export default class BScroll extends EventEmitter {
     this.plugins.push({
       name,
       ctor,
-      enforce: ctor.enforce
+      applyOrder: ctor.applyOrder
     });
 
     return this;
@@ -95,8 +93,8 @@ export default class BScroll extends EventEmitter {
   private init(wrapper: HTMLElement) {
     this.wrapper = wrapper;
 
-    // 通过设置 isBScroll 属性来标识 BS 实例
-    (wrapper as any).isBScroll = true;
+    // 通过设置 isBScrollContainer 属性来标识 BS 实例
+    (wrapper as any).isBScrollContainer = true;
     this.scroller = new Scroller(wrapper as HTMLElement, this.options);
 
     this.eventBubbling();
@@ -138,12 +136,12 @@ export default class BScroll extends EventEmitter {
     const options = this.options;
     (this.constructor as typeof BScroll).plugins
       .sort((a, b) => {
-        const enforceOrderMap = {
-          [EnforceOrder.Pre]: -1,
-          [EnforceOrder.Post]: 1
+        const applyOrderMap = {
+          [ApplyOrder.Pre]: -1,
+          [ApplyOrder.Post]: 1
         };
-        const aOrder = a.enforce ? enforceOrderMap[a.enforce] : 0;
-        const bOrder = b.enforce ? enforceOrderMap[b.enforce] : 0;
+        const aOrder = a.applyOrder ? applyOrderMap[a.applyOrder] : 0;
+        const bOrder = b.applyOrder ? applyOrderMap[b.applyOrder] : 0;
 
         return aOrder - bOrder;
       })
@@ -189,4 +187,6 @@ export default class BScroll extends EventEmitter {
   }
 }
 
-export { Options };
+export { Options, MountedBScrollHTMLElement };
+export { TranslaterPoint } from './translater';
+export { default as Behavior } from './scroller/Behavior';

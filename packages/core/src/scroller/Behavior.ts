@@ -1,6 +1,4 @@
-import { getRect } from '@bsas/shared-utils';
-import { Direction } from '../enums/direction';
-import EventEmitter from '../base/EventEmitter';
+import { getRect, Direction, EventEmitter } from '@bsas/shared-utils';
 
 export type Bounces = [boolean, boolean];
 

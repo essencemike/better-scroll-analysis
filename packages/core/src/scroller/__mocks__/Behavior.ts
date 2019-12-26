@@ -1,4 +1,4 @@
-import EventEmitter from '@bsas/core/src/base/EventEmitter';
+import { EventEmitter } from '@bsas/shared-utils';
 
 const Behavior = jest.fn().mockImplementation((content, bscrollOptions) => {
   return {

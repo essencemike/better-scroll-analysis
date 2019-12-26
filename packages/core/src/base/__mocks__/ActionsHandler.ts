@@ -1,5 +1,4 @@
-import EventEmitter from '@bsas/core/src/base/EventEmitter';
-import EventRegister from '@bsas/core/src/base/EventRegister';
+import { EventEmitter, EventRegister } from '@bsas/shared-utils';
 
 const ActionsHandler = jest.fn().mockImplementation((wrapper, bscrollOptions) => {
   return {

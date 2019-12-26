@@ -1,9 +1,9 @@
-import Scroller from '@bsas/core/src/scroller/Scroller';
-import EventEmitter from '@bsas/core/src/base/EventEmitter';
-import { Options } from '@bsas/core/src/Options';
+import Scroller from '../scroller/Scroller';
+import { EventEmitter } from '@bsas/shared-utils';
+import { Options } from '../Options';
 
-jest.mock('@bsas/core/src/scroller/Scroller');
-jest.mock('@bsas/core/src/Options');
+jest.mock('../scroller/Scroller');
+jest.mock('../Options');
 
 const BScroll = jest.fn().mockImplementation((wrapper, options) => {
   options = Object.assign(new Options(), options);

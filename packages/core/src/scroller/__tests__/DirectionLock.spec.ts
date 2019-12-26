@@ -1,4 +1,4 @@
-import DirectionLock from '@bsas/core/src/scroller/DirectionLock';
+import DirectionLock from '../DirectionLock';
 
 describe('DirectionLock Class tests', () => {
   let directionLock: DirectionLock;

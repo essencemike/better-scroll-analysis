@@ -1,8 +1,7 @@
-import { getNow, requestAnimationFrame, cancelAnimationFrame, EaseFn } from '@bsas/shared-utils';
+import { getNow, requestAnimationFrame, cancelAnimationFrame, EaseFn, Probe } from '@bsas/shared-utils';
 
 import Base from './Base';
 import { TranslaterPoint } from '../translater';
-import { Probe } from '../enums/probe';
 
 export default class Animation extends Base {
   move(startPoint: TranslaterPoint, endPoint: TranslaterPoint, time: number, easingFn: EaseFn | string, isSlient?: boolean) {

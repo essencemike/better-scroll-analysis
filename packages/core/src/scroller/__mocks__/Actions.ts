@@ -1,8 +1,8 @@
-import DirectionLock from '@bsas/core/src/scroller/DirectionLock';
+import DirectionLock from '../DirectionLock';
 
-jest.mock('@bsas/core/src/scroller/DirectionLock');
+jest.mock('../DirectionLock');
 
-import EventEmitter from '@bsas/core/src/base/EventEmitter';
+import { EventEmitter } from '@bsas/shared-utils';
 
 const ScrollerActions = jest.fn().mockImplementation((scrollBehaviorX, scrollBehaviorY, actionsHandler, animater, bscrollOptions) => {
   const directionLockAction = new DirectionLock(0, false, '');
