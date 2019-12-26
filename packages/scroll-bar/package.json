@@ -1,6 +1,6 @@
 {
   "name": "@bsas/scroll-bar",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "scrollbar is used to BetterScroll, which behaves like browser scrollbar",
   "keywords": [
     "scroll",
@@ -27,6 +27,6 @@
     "url": "https://github.com/essencemike/better-scroll-analysis/issues"
   },
   "dependencies": {
-    "@bsas/core": "^1.0.0"
+    "@bsas/core": "^1.1.0"
   }
 }
